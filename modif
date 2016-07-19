@@ -1,0 +1,14 @@
+for path in $(cat MODIF/path)
+do
+find $path -type f -mmin -1440 -ls > MODIF/dfile
+for exclusion in $(cat MODIF/exclusion)
+do
+sed '/'$exclusion'/d' MODIF/dfile > MODIF/dout
+cp MODIF/dout MODIF/dfile
+done
+done
+
+rm MODIF/dfile
+python MODIF/script.py
+
+#find $path \( -iname \*.zip -o -iname \*.sql \) > MODIF/dout
