@@ -11,13 +11,13 @@ from email.mime.base import MIMEBase
 from email.MIMEText import MIMEText
 
  
-SMTP_SERVER = '#smtp server#'
-SMTP_PORT = #smtp port#
+SMTP_SERVER = '#smtp server#'             #Enter SMTP server details here
+SMTP_PORT = #smtp port#			  #Enter SMTP port details here
 
  
-sender = '#sender#'
-password = "#sender password#"
-recipient = ['#recipient1#', '#recipient2#']
+sender = '#sender#'			  #Enter Sender Email Id here
+password = "#sender password#"		  #Enter Sender Password here
+recipient = ['#recipient1#', '#recipient2#']   #Enter Email Ids of Sender1, Sender2 and so on
 subject = 'MODIFICATION IN SITE'
 message = 'PLEASE CHECK THE FILE'
  
@@ -46,11 +46,9 @@ def main():
     fp.close()
     # Encode the payload using Base64
     encoders.encode_base64(msgq)
-    # Set the filename parameter
     filename='dout'
     msgq.add_header('Content-Disposition', 'attachment', filename=filename)
     msg.attach(msgq)
-    # Now send or store the message
     qwertyuiop = msg.as_string()
 
 
